@@ -1,0 +1,11 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-ivory text-ink font-sans antialiased; }
+  h1,h2,h3 { @apply font-serif; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-gold; }
+}
+@layer components {
+  .btn-gold { @apply inline-flex items-center gap-2 bg-gold text-emerald px-7 py-3 text-xs font-semibold uppercase tracking-luxe transition hover:bg-gold-light; }
+  .eyebrow { @apply text-[11px] uppercase tracking-luxe text-gold-dark; }
+}

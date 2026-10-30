@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
+    // Admin role is a custom claim set ONLY by Cloud Functions / Admin SDK.
+    function isAdmin() { return signedIn() && request.auth.token.admin == true; }
+
+    // Public catalogue: read all, write admin only
+    match /{col}/{id} {
+      allow read: if col in ['products','categories','brands','collections','banners'];
+      allow write: if isAdmin() && col in ['products','categories','brands','collections','banners','coupons'];
+    }
+    match /products/{pid}/reviews/{rid} { allow read: if true; allow write: if isAdmin(); }
+
+    // Customer-private data
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow create: if isOwner(uid) && !('role' in request.resource.data) && !('admin' in request.resource.data);
+      allow update: if isOwner(uid)
+        && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role','admin','tier','points']);
+      match /addresses/{aid} { allow read, write: if isOwner(uid); }
+    }
+    match /carts/{uid}        { allow read, write: if isOwner(uid); }
+    match /wishlists/{uid}    { allow read, write: if isOwner(uid); }
+    match /recentlyViewed/{uid} { allow read, write: if isOwner(uid); }
+    match /styleBoards/{id} {
+      allow read: if resource.data.isPublic == true || isOwner(resource.data.userId) || isAdmin();
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isOwner(resource.data.userId);
+    }
+    match /reviews/{id} {
+      allow read: if resource.data.approved == true || isOwner(resource.data.userId) || isAdmin();
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid && request.resource.data.approved == false;
+      allow update, delete: if isAdmin();
+    }
+    match /newsletterSubscribers/{id} { allow create: if true; allow read, update, delete: if isAdmin(); }
+
+    // Server-managed: customers may READ their own, never write
+    match /orders/{id}  { allow read: if isOwner(resource.data.userId) || isAdmin(); allow write: if false; }
+    match /payments/{id} { allow read: if isOwner(resource.data.userId) || isAdmin(); allow write: if false; }
+    match /returns/{id} { allow read: if isOwner(resource.data.userId) || isAdmin(); allow write: if false; }
+    match /refunds/{id} { allow read: if isOwner(resource.data.userId) || isAdmin(); allow write: if false; }
+    match /shipments/{id} { allow read: if isOwner(resource.data.userId) || isAdmin(); allow write: if false; }
+    match /memberships/{uid} { allow read: if isOwner(uid) || isAdmin(); allow write: if false; }
+    match /rewardTransactions/{id} { allow read: if isOwner(resource.data.userId) || isAdmin(); allow write: if false; }
+    match /notifications/{id} { allow read: if isOwner(resource.data.userId); allow update: if isOwner(resource.data.userId); }
+    match /inventory/{id} { allow read, write: if isAdmin(); }
+    match /coupons/{id} { allow read: if isAdmin(); }
+  }
+}

@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+.env
+.env.local
+*.log
+serviceAccount*.json
+functions/lib
+.firebase
+.DS_Store
+Thumbs.db
+.turbo
+*.tsbuildinfo
+
