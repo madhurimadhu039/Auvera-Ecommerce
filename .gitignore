@@ -12,3 +12,5 @@ Thumbs.db
 .turbo
 *.tsbuildinfo
 
+
+.vercel
