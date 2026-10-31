@@ -36,7 +36,7 @@ export const CATEGORIES: StoreCategory[] = [
     badgeBg: "bg-pink-500",
     badgeText: "text-pink-500",
     department: "fashion-lifestyle",
-    itemCount: 38,
+    itemCount: 46,
     subcategories: [
       { slug: "mens-clothing", name: "Men's Clothing" },
       { slug: "womens-clothing", name: "Women's Clothing" },
@@ -476,7 +476,7 @@ const RAW_PRODUCTS: RawProduct[] = [
     newArrival: true,
     createdAt: "2026-02-06T10:00:00Z",
   },
-  // ===================== 2.1 WOMEN'S CLOTHING (10 items) =====================
+  // ===================== 2.1 WOMEN'S CLOTHING (18 items) =====================
   {
     id: "prod-womens-cashmere-coat",
     name: "Double-Faced Cashmere Wrap Coat",
@@ -488,7 +488,11 @@ const RAW_PRODUCTS: RawProduct[] = [
     price: 28999,
     compareAtPrice: 38999,
     discount: 26,
-    images: ["/images/product-womens-cashmere-coat.jpg", "/images/hero-lifestyle.jpg"],
+    images: [
+      "/images/product-womens-cashmere-coat.jpg",
+      "/images/product-womens-peacoat.jpg",
+      "/images/hero-lifestyle.jpg"
+    ],
     rating: 5,
     reviewCount: 428,
     stock: 14,
@@ -514,7 +518,10 @@ const RAW_PRODUCTS: RawProduct[] = [
     price: 6499,
     compareAtPrice: 8499,
     discount: 24,
-    images: ["/images/product-womens-silk-blouse.jpg"],
+    images: [
+      "/images/product-womens-silk-blouse.jpg",
+      "/images/product-womens-organza-blouse.jpg"
+    ],
     rating: 5,
     reviewCount: 312,
     stock: 26,
@@ -540,7 +547,10 @@ const RAW_PRODUCTS: RawProduct[] = [
     price: 17999,
     compareAtPrice: 23999,
     discount: 25,
-    images: ["/images/product-womens-boucle-jacket.jpg"],
+    images: [
+      "/images/product-womens-boucle-jacket.jpg",
+      "/images/product-womens-velvet-smoking.jpg"
+    ],
     rating: 5,
     reviewCount: 245,
     stock: 10,
@@ -566,7 +576,10 @@ const RAW_PRODUCTS: RawProduct[] = [
     price: 21499,
     compareAtPrice: 28999,
     discount: 26,
-    images: ["/images/product-womens-trench-coat.jpg"],
+    images: [
+      "/images/product-womens-trench-coat.jpg",
+      "/images/product-womens-leather-trench.jpg"
+    ],
     rating: 5,
     reviewCount: 389,
     stock: 16,
@@ -591,7 +604,10 @@ const RAW_PRODUCTS: RawProduct[] = [
     price: 8499,
     compareAtPrice: 11499,
     discount: 26,
-    images: ["/images/product-womens-wool-cardigan.jpg"],
+    images: [
+      "/images/product-womens-wool-cardigan.jpg",
+      "/images/product-womens-cashmere-jumper.jpg"
+    ],
     rating: 5,
     reviewCount: 198,
     stock: 20,
@@ -616,7 +632,10 @@ const RAW_PRODUCTS: RawProduct[] = [
     price: 7999,
     compareAtPrice: 10499,
     discount: 24,
-    images: ["/images/product-womens-pleated-skirt.jpg"],
+    images: [
+      "/images/product-womens-pleated-skirt.jpg",
+      "/images/product-womens-georgette-maxi.jpg"
+    ],
     rating: 5,
     reviewCount: 276,
     stock: 22,
@@ -642,7 +661,10 @@ const RAW_PRODUCTS: RawProduct[] = [
     price: 9499,
     compareAtPrice: 12999,
     discount: 27,
-    images: ["/images/product-womens-turtleneck.jpg"],
+    images: [
+      "/images/product-womens-turtleneck.jpg",
+      "/images/product-womens-cashmere-jumper.jpg"
+    ],
     rating: 5,
     reviewCount: 412,
     stock: 18,
@@ -667,7 +689,10 @@ const RAW_PRODUCTS: RawProduct[] = [
     price: 14499,
     compareAtPrice: 18999,
     discount: 24,
-    images: ["/images/product-womens-linen-blazer.jpg"],
+    images: [
+      "/images/product-womens-linen-blazer.jpg",
+      "/images/product-womens-boucle-jacket.jpg"
+    ],
     rating: 5,
     reviewCount: 164,
     stock: 11,
@@ -693,7 +718,10 @@ const RAW_PRODUCTS: RawProduct[] = [
     price: 6999,
     compareAtPrice: 9299,
     discount: 25,
-    images: ["/images/product-womens-slip-skirt.jpg"],
+    images: [
+      "/images/product-womens-slip-skirt.jpg",
+      "/images/product-womens-silk-cami.jpg"
+    ],
     rating: 5,
     reviewCount: 228,
     stock: 19,
@@ -718,7 +746,10 @@ const RAW_PRODUCTS: RawProduct[] = [
     price: 22999,
     compareAtPrice: 29999,
     discount: 23,
-    images: ["/images/product-womens-peacoat.jpg"],
+    images: [
+      "/images/product-womens-peacoat.jpg",
+      "/images/product-womens-wool-cape.jpg"
+    ],
     rating: 5,
     reviewCount: 184,
     stock: 9,
@@ -731,6 +762,236 @@ const RAW_PRODUCTS: RawProduct[] = [
     ],
     featured: true,
     createdAt: "2026-02-16T10:00:00Z",
+  },
+  // --- Additional Luxury Women's Clothing Items ---
+  {
+    id: "prod-womens-organza-blouse",
+    name: "Handcrafted Silk Organza Evening Blouse",
+    slug: "handcrafted-silk-organza-evening-blouse",
+    category: "fashion",
+    subcategory: "womens-clothing",
+    department: "fashion-lifestyle",
+    brand: "Atelier V",
+    price: 8499,
+    compareAtPrice: 11499,
+    discount: 26,
+    images: [
+      "/images/product-womens-organza-blouse.jpg",
+      "/images/product-womens-silk-blouse.jpg"
+    ],
+    rating: 5,
+    reviewCount: 174,
+    stock: 14,
+    availability: "in_stock",
+    description: "Sheer silk organza tailored with sculpted balloon sleeves, mother-of-pearl buttons, and structured cuffs for elevated evening affairs.",
+    features: [
+      "100% Pure Mulberry Silk Organza",
+      "Sartorial French seams throughout",
+      "Sculpted voluminous pleated sleeve"
+    ],
+    featured: true,
+    newArrival: true,
+    createdAt: "2026-02-17T10:00:00Z",
+  },
+  {
+    id: "prod-womens-wool-cape",
+    name: "Sculpted Wool-Cashmere Atelier Cape",
+    slug: "sculpted-wool-cashmere-atelier-cape",
+    category: "fashion",
+    subcategory: "womens-clothing",
+    department: "fashion-lifestyle",
+    brand: "Maison Auvera",
+    price: 24499,
+    compareAtPrice: 32999,
+    discount: 25,
+    images: [
+      "/images/product-womens-wool-cape.jpg",
+      "/images/product-womens-cashmere-coat.jpg"
+    ],
+    rating: 5,
+    reviewCount: 152,
+    stock: 8,
+    availability: "low_stock",
+    description: "Dramatic architectural silhouette cut from double-faced virgin wool and cashmere. Arm slits, high funnel collar, and horn clasp fastenings.",
+    features: [
+      "80% Virgin Wool, 20% Cashmere",
+      "Hand-rolled couture edge finishing",
+      "Integrated side arm openings with horn closures"
+    ],
+    featured: true,
+    createdAt: "2026-02-18T10:00:00Z",
+  },
+  {
+    id: "prod-womens-velvet-smoking",
+    name: "Tailored Silk-Velvet Smoking Jacket",
+    slug: "tailored-silk-velvet-smoking-jacket",
+    category: "fashion",
+    subcategory: "womens-clothing",
+    department: "fashion-lifestyle",
+    brand: "Maison Auvera",
+    price: 19999,
+    compareAtPrice: 26499,
+    discount: 24,
+    images: [
+      "/images/product-womens-velvet-smoking.jpg",
+      "/images/product-womens-boucle-jacket.jpg"
+    ],
+    rating: 5,
+    reviewCount: 219,
+    stock: 12,
+    availability: "in_stock",
+    description: "Sumptuous silk velvet smoking jacket featuring satin shawl lapels, jetted pockets, and tailored single-button fastening for black-tie soirées.",
+    features: [
+      "Silk-blend opulent velvet with silk satin lapels",
+      "Full cupro breathable lining",
+      "Sartorial structured shoulder pad"
+    ],
+    featured: false,
+    deal: true,
+    createdAt: "2026-02-19T10:00:00Z",
+  },
+  {
+    id: "prod-womens-silk-cami",
+    name: "Pure Mulberry Silk Charmeuse Cami Top",
+    slug: "pure-mulberry-silk-charmeuse-cami-top",
+    category: "fashion",
+    subcategory: "womens-clothing",
+    department: "fashion-lifestyle",
+    brand: "Atelier V",
+    price: 4999,
+    compareAtPrice: 6499,
+    discount: 23,
+    images: [
+      "/images/product-womens-silk-cami.jpg",
+      "/images/product-womens-slip-skirt.jpg"
+    ],
+    rating: 5,
+    reviewCount: 388,
+    stock: 25,
+    availability: "in_stock",
+    description: "Delicate V-neck camisole tailored in 22-momme silk charmeuse. Adjustable micro-spaghetti straps and subtle curved hemline.",
+    features: [
+      "Grade 6A 22-momme Mulberry Silk Charmeuse",
+      "Adjustable gold-plated strap sliders",
+      "Double-layered front for full opacity"
+    ],
+    featured: false,
+    newArrival: true,
+    createdAt: "2026-02-20T10:00:00Z",
+  },
+  {
+    id: "prod-womens-cashmere-jumper",
+    name: "Oversized Cashmere Mock-Neck Jumper",
+    slug: "oversized-cashmere-mock-neck-jumper",
+    category: "fashion",
+    subcategory: "womens-clothing",
+    department: "fashion-lifestyle",
+    brand: "Nordic Haven",
+    price: 11499,
+    compareAtPrice: 15499,
+    discount: 26,
+    images: [
+      "/images/product-womens-cashmere-jumper.jpg",
+      "/images/product-womens-turtleneck.jpg"
+    ],
+    rating: 5,
+    reviewCount: 264,
+    stock: 15,
+    availability: "in_stock",
+    description: "Generously proportioned luxury knit spun from 4-ply Mongolian cashmere. Dropped shoulders, ribbed mock-neck, and side split hem.",
+    features: [
+      "100% 4-Ply Pure Mongolian Cashmere",
+      "Chunky English rib knit stitch",
+      "Split side hem for effortless French tuck"
+    ],
+    featured: true,
+    createdAt: "2026-02-21T10:00:00Z",
+  },
+  {
+    id: "prod-womens-crepe-palazzo",
+    name: "Fluid Italian Crepe Wide-Leg Palazzo Trousers",
+    slug: "fluid-italian-crepe-wide-leg-palazzo-trousers",
+    category: "fashion",
+    subcategory: "womens-clothing",
+    department: "fashion-lifestyle",
+    brand: "Atelier V",
+    price: 7499,
+    compareAtPrice: 9999,
+    discount: 25,
+    images: [
+      "/images/product-womens-crepe-palazzo.jpg",
+      "/images/product-womens-pleated-skirt.jpg"
+    ],
+    rating: 5,
+    reviewCount: 295,
+    stock: 21,
+    availability: "in_stock",
+    description: "Flowing wide-leg trousers tailored in Biella stretch wool-crepe. High-rise contoured waistband, deep front pleats, and hidden zip closure.",
+    features: [
+      "96% Virgin Wool Crepe, 4% Elastane",
+      "Smooth curtained interior waistband",
+      "Dramatic 34-inch palazzo leg sweep"
+    ],
+    featured: false,
+    deal: true,
+    createdAt: "2026-02-22T10:00:00Z",
+  },
+  {
+    id: "prod-womens-leather-trench",
+    name: "Artisanal Lambskin Leather Trench Coat",
+    slug: "artisanal-lambskin-leather-trench-coat",
+    category: "fashion",
+    subcategory: "womens-clothing",
+    department: "fashion-lifestyle",
+    brand: "Maison Auvera",
+    price: 34999,
+    compareAtPrice: 44999,
+    discount: 22,
+    images: [
+      "/images/product-womens-leather-trench.jpg",
+      "/images/product-womens-trench-coat.jpg"
+    ],
+    rating: 5,
+    reviewCount: 142,
+    stock: 7,
+    availability: "low_stock",
+    description: "Glove-soft French lambskin nappa leather tailored into an iconic trench. Features storm flap, buckled waist belt, and silk-twill interior lining.",
+    features: [
+      "100% French Lambskin Nappa Leather",
+      "Hand-polished leather-wrapped buckles",
+      "Full mulberry silk twill lining"
+    ],
+    featured: true,
+    newArrival: true,
+    createdAt: "2026-02-23T10:00:00Z",
+  },
+  {
+    id: "prod-womens-georgette-maxi",
+    name: "Cascading Tiered Silk Georgette Maxi Skirt",
+    slug: "cascading-tiered-silk-georgette-maxi-skirt",
+    category: "fashion",
+    subcategory: "womens-clothing",
+    department: "fashion-lifestyle",
+    brand: "Atelier V",
+    price: 9999,
+    compareAtPrice: 13499,
+    discount: 26,
+    images: [
+      "/images/product-womens-georgette-maxi.jpg",
+      "/images/product-womens-slip-skirt.jpg"
+    ],
+    rating: 5,
+    reviewCount: 210,
+    stock: 18,
+    availability: "in_stock",
+    description: "Romantic floor-sweeping maxi skirt created with tiers of crinkle silk georgette. Smooth fitted hip with gentle gathers cascading to the hem.",
+    features: [
+      "100% Pure Crinkle Silk Georgette",
+      "Silk habotai inner half-slip lining",
+      "Invisible French side zip closure"
+    ],
+    featured: false,
+    createdAt: "2026-02-24T10:00:00Z",
   },
 
   // ===================== 2.2 DRESSES (5 items) =====================
