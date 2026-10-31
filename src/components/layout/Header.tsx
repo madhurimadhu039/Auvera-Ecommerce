@@ -6,17 +6,42 @@ import { Search, User, Heart, ShoppingBag, Menu, ChevronDown } from "lucide-reac
 import { NAV, SITE } from "@/constants/site";
 import { CATEGORIES } from "@/constants/catalogue";
 import { Icon } from "@/components/ui/Icon";
-
-const actions = [
-  { I: User, l: "Account", h: "/login" },
-  { I: Heart, l: "Wishlist", h: "/wishlist", badge: 3 },
-  { I: ShoppingBag, l: "Cart", h: "/cart", badge: 2 },
-];
+import { useAuth } from "@/context/AuthContext";
+import { useCart } from "@/context/CartContext";
+import { useWishlist } from "@/context/WishlistContext";
 
 export function Header() {
   const pathname = usePathname();
+  const { user, isAuthenticated } = useAuth();
+  const { itemCount: cartCount } = useCart();
+  const { itemCount: wishlistCount } = useWishlist();
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const actions = [
+    {
+      I: User,
+      l: isAuthenticated && user ? user.firstName : "Account",
+      h: "/account",
+      badge: 0,
+      active: pathname.startsWith("/account") || pathname === "/login",
+    },
+    {
+      I: Heart,
+      l: "Wishlist",
+      h: "/wishlist",
+      badge: wishlistCount,
+      active: pathname === "/wishlist",
+    },
+    {
+      I: ShoppingBag,
+      l: "Cart",
+      h: "/cart",
+      badge: cartCount,
+      active: pathname === "/cart",
+    },
+  ];
 
   // Close dropdown on click outside only when open
   useEffect(() => {
@@ -69,18 +94,20 @@ export function Header() {
 
         {/* User Actions */}
         <nav className="ml-auto flex items-center gap-6 text-emerald" aria-label="Account">
-          {actions.map(({ I, l, h, badge }) => (
+          {actions.map(({ I, l, h, badge, active }) => (
             <Link
-              key={l}
+              key={h}
               href={h}
               prefetch={true}
-              className="group relative flex flex-col items-center text-[10px] uppercase tracking-widest transition hover:text-gold-dark"
+              className={`group relative flex flex-col items-center text-[10px] uppercase tracking-widest transition ${
+                active ? "font-bold text-gold-dark" : "hover:text-gold-dark"
+              }`}
             >
               <div className="relative">
-                <I size={20} strokeWidth={1.5} />
-                {Boolean(badge) && (
-                  <span className="absolute -right-2 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-emerald text-[9px] font-bold text-ivory">
-                    {badge}
+                <I size={20} strokeWidth={active ? 2 : 1.5} />
+                {Boolean(badge && badge > 0) && (
+                  <span className="absolute -right-2 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-emerald text-[9px] font-bold text-ivory shadow-sm animate-in zoom-in-50 duration-200">
+                    {badge > 99 ? "99+" : badge}
                   </span>
                 )}
               </div>

@@ -5,14 +5,17 @@ import { Star, ShoppingBag, Sparkles, ChevronRight, Check } from "lucide-react";
 import { useState } from "react";
 import { getTopPicks, type StoreProduct } from "@/constants/catalogue";
 import { formatPrice } from "@/utils/currency";
+import { useCart } from "@/context/CartContext";
 
 export function TopPicks() {
   const products = getTopPicks();
+  const { addToCart } = useCart();
   const [addedId, setAddedId] = useState<string | null>(null);
 
   const handleAddToCart = (e: React.MouseEvent, p: StoreProduct) => {
     e.preventDefault();
     e.stopPropagation();
+    addToCart(p, 1);
     setAddedId(p.id);
     setTimeout(() => setAddedId(null), 1800);
   };

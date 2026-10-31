@@ -13,10 +13,12 @@ import {
   Sparkles,
   RotateCcw,
 } from "lucide-react";
-import type { StoreCategory } from "@/constants/catalogue";
+import type { StoreCategory, StoreProduct } from "@/constants/catalogue";
 import type { Product } from "@/types";
 import { Icon } from "@/components/ui/Icon";
 import { formatPrice } from "@/utils/currency";
+import { useWishlist } from "@/context/WishlistContext";
+import { useCart } from "@/context/CartContext";
 
 interface CategoryViewProps {
   category: StoreCategory;
@@ -31,8 +33,9 @@ export function CategoryView({ category, initialProducts }: CategoryViewProps) {
   const [onlyInStock, setOnlyInStock] = useState<boolean>(false);
   const [sortBy, setSortBy] = useState<string>("featured");
 
-  // Interactive UI States
-  const [wishlist, setWishlist] = useState<Record<string, boolean>>({});
+  // Global Cart & Wishlist context integration
+  const { toggleWishlist: toggleWishlistContext, isInWishlist } = useWishlist();
+  const { addToCart } = useCart();
   const [cartFeedback, setCartFeedback] = useState<Record<string, boolean>>({});
   const [visibleCount, setVisibleCount] = useState<number>(8);
   const [showFiltersMobile, setShowFiltersMobile] = useState<boolean>(false);
@@ -47,21 +50,22 @@ export function CategoryView({ category, initialProducts }: CategoryViewProps) {
   }, [initialProducts]);
 
   // Wishlist toggle handler
-  const toggleWishlist = useCallback((id: string, e: React.MouseEvent) => {
+  const handleToggleWishlist = useCallback((product: Product, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setWishlist((prev) => ({ ...prev, [id]: !prev[id] }));
-  }, []);
+    toggleWishlistContext(product as unknown as StoreProduct);
+  }, [toggleWishlistContext]);
 
   // Add to cart handler
-  const handleAddToCart = useCallback((id: string, e: React.MouseEvent) => {
+  const handleAddToCart = useCallback((product: Product, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setCartFeedback((prev) => ({ ...prev, [id]: true }));
+    addToCart(product as unknown as StoreProduct, 1);
+    setCartFeedback((prev) => ({ ...prev, [product.id]: true }));
     setTimeout(() => {
-      setCartFeedback((prev) => ({ ...prev, [id]: false }));
+      setCartFeedback((prev) => ({ ...prev, [product.id]: false }));
     }, 1800);
-  }, []);
+  }, [addToCart]);
 
   // Filtered & Sorted Products
   const filteredProducts = useMemo(() => {
@@ -387,7 +391,7 @@ export function CategoryView({ category, initialProducts }: CategoryViewProps) {
             <div>
               <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
                 {displayedProducts.map((p) => {
-                  const isWishlisted = Boolean(wishlist[p.id]);
+                  const isWishlisted = isInWishlist(p.id);
                   const isCartAdded = Boolean(cartFeedback[p.id]);
 
                   return (
@@ -407,7 +411,7 @@ export function CategoryView({ category, initialProducts }: CategoryViewProps) {
 
                           {/* 9. Wishlist Button */}
                           <button
-                            onClick={(e) => toggleWishlist(p.id, e)}
+                            onClick={(e) => handleToggleWishlist(p, e)}
                             aria-label={`Save ${p.name} to wishlist`}
                             className={`absolute right-2.5 top-2.5 z-10 grid h-7 w-7 place-items-center rounded-full bg-white/90 shadow transition hover:scale-110 ${
                               isWishlisted ? "text-rose-600" : "text-ink/40 hover:text-rose-600"
@@ -486,7 +490,7 @@ export function CategoryView({ category, initialProducts }: CategoryViewProps) {
 
                         {/* Add to Cart button with instant visual feedback */}
                         <button
-                          onClick={(e) => handleAddToCart(p.id, e)}
+                          onClick={(e) => handleAddToCart(p, e)}
                           aria-label={`Add ${p.name} to cart`}
                           className={`grid h-8 w-8 place-items-center rounded-full transition-all duration-200 ${
                             isCartAdded

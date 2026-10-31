@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Star, ShieldCheck, Truck, RotateCcw, ChevronRight, Check } from "lucide-react";
 import { getProductById, getProductsByCategory, getAllProducts } from "@/constants/catalogue";
 import { formatPrice } from "@/utils/currency";
+import { ProductPurchaseControls } from "@/components/products/ProductPurchaseControls";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -144,14 +145,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
           {/* Action buttons */}
           <div className="mt-8 border-t border-gold/15 pt-6">
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <button className="flex-1 rounded-full bg-emerald py-3.5 text-xs font-semibold tracking-widest text-ivory uppercase shadow-md transition hover:bg-emerald-700">
-                Add to Shopping Bag
-              </button>
-              <button className="flex-1 rounded-full border border-emerald py-3.5 text-xs font-semibold tracking-widest text-emerald uppercase transition hover:bg-emerald hover:text-ivory">
-                Buy with Express Checkout
-              </button>
-            </div>
+            <ProductPurchaseControls product={product} />
 
             {/* Trust guarantees */}
             <div className="mt-8 grid grid-cols-3 gap-4 border-t border-gold/10 pt-6 text-center text-xs text-ink/65">
