@@ -205,7 +205,11 @@ export function Header() {
                   pathname.startsWith("/category") ||
                   pathname === "/categories");
 
-              const isActive = (pathname === n.href && !isShop) || isShop;
+              const isTrackOrder =
+                n.href === "/track-order" &&
+                (pathname === "/track-order" || pathname.startsWith("/account/orders"));
+
+              const isActive = (pathname === n.href && !isShop) || isShop || isTrackOrder;
 
               return (
                 <Link

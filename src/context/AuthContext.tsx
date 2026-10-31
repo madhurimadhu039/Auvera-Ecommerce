@@ -55,7 +55,7 @@ const INITIAL_ADDRESSES: UserAddress[] = [
   },
 ];
 
-const INITIAL_ORDERS: CustomerOrder[] = [
+export const INITIAL_ORDERS: CustomerOrder[] = [
   {
     id: "AUV-2026-9041",
     date: "28 October 2026",

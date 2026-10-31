@@ -6,7 +6,7 @@ export const SITE = {
 export const NAV = [
   { label: "Home", href: "/" }, { label: "Shop", href: "/products" }, { label: "Deals", href: "/deals" },
   { label: "New Arrivals", href: "/new-arrivals" }, { label: "Brands", href: "/brands" },
-  { label: "Collections", href: "/collections" }, { label: "Track Order", href: "/account/orders" },
+  { label: "Collections", href: "/collections" }, { label: "Track Order", href: "/track-order" },
 ];
 export const CATEGORY_SHORTCUTS = [
   { slug: "electronics", label: "Electronics", icon: "Tv", bg: "bg-[#EBF3FC]", text: "text-[#1E40AF]", border: "border-[#BFDBFE]" },

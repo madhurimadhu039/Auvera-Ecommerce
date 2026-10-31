@@ -10,7 +10,7 @@ const footerLinks = {
     { label: "Collections", href: "/collections" },
   ],
   "Customer Care": [
-    { label: "Track Order", href: "/account/orders" },
+    { label: "Track Order", href: "/track-order" },
     { label: "Returns & Refunds", href: "#" },
     { label: "Shipping Info", href: "#" },
     { label: "FAQ", href: "#" },
