@@ -38,7 +38,7 @@ export function CategoryView({ category, initialProducts, initialSubcategory = "
   const { toggleWishlist: toggleWishlistContext, isInWishlist } = useWishlist();
   const { addToCart } = useCart();
   const [cartFeedback, setCartFeedback] = useState<Record<string, boolean>>({});
-  const [visibleCount, setVisibleCount] = useState<number>(24);
+  const [visibleCount, setVisibleCount] = useState<number>(36);
   const [showFiltersMobile, setShowFiltersMobile] = useState<boolean>(false);
 
   // Extract unique brands for filter sidebar
@@ -201,7 +201,7 @@ export function CategoryView({ category, initialProducts, initialSubcategory = "
             <button
               onClick={() => {
                 setActiveSubcategory("all");
-                setVisibleCount(24);
+                setVisibleCount(36);
               }}
               className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
                 activeSubcategory === "all"
@@ -216,7 +216,7 @@ export function CategoryView({ category, initialProducts, initialSubcategory = "
                 key={sub.slug}
                 onClick={() => {
                   setActiveSubcategory(sub.slug);
-                  setVisibleCount(24);
+                  setVisibleCount(36);
                 }}
                 className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-medium transition ${
                   activeSubcategory === sub.slug
