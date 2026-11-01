@@ -38,7 +38,7 @@ export function CategoryView({ category, initialProducts, initialSubcategory = "
   const { toggleWishlist: toggleWishlistContext, isInWishlist } = useWishlist();
   const { addToCart } = useCart();
   const [cartFeedback, setCartFeedback] = useState<Record<string, boolean>>({});
-  const [visibleCount, setVisibleCount] = useState<number>(36);
+  const [visibleCount, setVisibleCount] = useState<number>(60);
   const [showFiltersMobile, setShowFiltersMobile] = useState<boolean>(false);
 
   // Extract unique brands for filter sidebar
