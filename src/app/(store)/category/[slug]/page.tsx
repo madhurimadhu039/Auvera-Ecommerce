@@ -4,6 +4,7 @@ import { CategoryView } from "@/components/category/CategoryView";
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ sub?: string; subcategory?: string }>;
 }
 
 export function generateStaticParams() {
@@ -26,8 +27,10 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const sParams = await searchParams;
+  const initialSubcategory = sParams?.sub || sParams?.subcategory;
   const category = getCategoryBySlug(slug);
 
   if (!category) {
@@ -36,5 +39,11 @@ export default async function CategoryPage({ params }: Props) {
 
   const products = getProductsByCategory(slug);
 
-  return <CategoryView category={category} initialProducts={products} />;
+  return (
+    <CategoryView
+      category={category}
+      initialProducts={products}
+      initialSubcategory={initialSubcategory}
+    />
+  );
 }

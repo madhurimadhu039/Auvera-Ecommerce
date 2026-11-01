@@ -23,11 +23,12 @@ import { useCart } from "@/context/CartContext";
 interface CategoryViewProps {
   category: StoreCategory;
   initialProducts: Product[];
+  initialSubcategory?: string;
 }
 
-export function CategoryView({ category, initialProducts }: CategoryViewProps) {
+export function CategoryView({ category, initialProducts, initialSubcategory = "all" }: CategoryViewProps) {
   // Filter States
-  const [activeSubcategory, setActiveSubcategory] = useState<string>("all");
+  const [activeSubcategory, setActiveSubcategory] = useState<string>(initialSubcategory || "all");
   const [selectedBrand, setSelectedBrand] = useState<string>("all");
   const [priceRange, setPriceRange] = useState<string>("all");
   const [onlyInStock, setOnlyInStock] = useState<boolean>(false);
@@ -37,7 +38,7 @@ export function CategoryView({ category, initialProducts }: CategoryViewProps) {
   const { toggleWishlist: toggleWishlistContext, isInWishlist } = useWishlist();
   const { addToCart } = useCart();
   const [cartFeedback, setCartFeedback] = useState<Record<string, boolean>>({});
-  const [visibleCount, setVisibleCount] = useState<number>(8);
+  const [visibleCount, setVisibleCount] = useState<number>(24);
   const [showFiltersMobile, setShowFiltersMobile] = useState<boolean>(false);
 
   // Extract unique brands for filter sidebar
@@ -200,7 +201,7 @@ export function CategoryView({ category, initialProducts }: CategoryViewProps) {
             <button
               onClick={() => {
                 setActiveSubcategory("all");
-                setVisibleCount(8);
+                setVisibleCount(24);
               }}
               className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
                 activeSubcategory === "all"
@@ -215,7 +216,7 @@ export function CategoryView({ category, initialProducts }: CategoryViewProps) {
                 key={sub.slug}
                 onClick={() => {
                   setActiveSubcategory(sub.slug);
-                  setVisibleCount(8);
+                  setVisibleCount(24);
                 }}
                 className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-medium transition ${
                   activeSubcategory === sub.slug
