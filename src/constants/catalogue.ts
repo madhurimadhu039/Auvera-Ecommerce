@@ -5057,8 +5057,8 @@ const RAW_PRODUCTS: RawProduct[] = [
   },
   {
     id: "prod-moist-marine-cream",
-    name: "Deep Marine Algae Nourishing Face Cream (50ml)",
-    slug: "deep-marine-algae-nourishing-face-cream",
+    name: "Deep Marine Algae Nourishing Face Serum (50ml)",
+    slug: "deep-marine-algae-nourishing-face-serum",
     category: "beauty",
     subcategory: "moisturizers",
     department: "beauty-skincare",
@@ -5071,11 +5071,11 @@ const RAW_PRODUCTS: RawProduct[] = [
     reviewCount: 310,
     stock: 24,
     availability: "in_stock",
-    description: "Harnesses bio-fermented kelp extract and sea minerals to firm skin matrix, improve bounce, and provide deep hydration.",
+    description: "Concentrated bioactive kelp extract and marine collagen face serum to deeply hydrate, firm skin matrix, improve bounce, and lock in lasting moisture.",
     features: [
           "Bio-fermented Atlantic Kelp + Marine Collagen",
-          "Visibly plumps fine lines and enhances skin elasticity",
-          "Luxe rich texture with velvety absorption"
+          "Visibly plumps fine lines and delivers deep moisture retention",
+          "Concentrated essential serum texture with velvety absorption"
     ],
     attributes: {
           "volume": "50ml",
