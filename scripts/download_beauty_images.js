@@ -41,7 +41,7 @@ const images = [
   // Cleansers
   { filename: 'product-cleanse-charcoal.jpg', url: 'https://images.unsplash.com/photo-1745565610492-b70156cec381?auto=format&fit=crop&w=1000&q=80' },
   { filename: 'product-cleanse-oil.jpg', url: 'https://images.unsplash.com/photo-1603668479131-45c765b16196?auto=format&fit=crop&w=1000&q=80' },
-  { filename: 'product-cleanse-micellar.jpg', url: 'https://images.unsplash.com/photo-1570554886111-e80fcca6a029?auto=format&fit=crop&w=1000&q=80' },
+  { filename: 'product-cleanse-micellar.jpg', url: 'https://images.unsplash.com/photo-1601065874121-05ba185080d8?auto=format&fit=crop&w=1000&q=80' },
   { filename: 'product-cleanse-balm.jpg', url: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1000&q=80' },
   { filename: 'product-cleanse-cloud-foam.jpg', url: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1000&q=80' },
   { filename: 'product-cleanse-exfoliating.jpg', url: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=1000&q=80' },
