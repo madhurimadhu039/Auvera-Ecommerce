@@ -52,7 +52,7 @@ const images = [
   { filename: 'product-hair-serum.jpg', url: 'https://images.unsplash.com/photo-1519735777090-ec97162dc266?auto=format&fit=crop&w=1000&q=80' },
   { filename: 'product-hair-oil.jpg', url: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=80' },
   { filename: 'product-hair-curl-cream.jpg', url: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1000&q=80' },
-  { filename: 'product-hair-spray.jpg', url: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1000&q=80' },
+  { filename: 'product-hair-spray.jpg', url: 'https://images.unsplash.com/photo-1699982493694-d9ef978318aa?auto=format&fit=crop&w=1000&q=80' },
 
   // Fragrances
   { filename: 'product-frag-men-edt.jpg', url: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=1000&q=80' },
