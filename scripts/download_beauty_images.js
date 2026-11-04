@@ -48,7 +48,7 @@ const images = [
 
   // Haircare
   { filename: 'product-hair-conditioner.jpg', url: 'https://images.unsplash.com/photo-1786457166579-92da3f9a23b8?auto=format&fit=crop&w=1000&q=80' },
-  { filename: 'product-hair-mask.jpg', url: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1000&q=80' },
+  { filename: 'product-hair-mask.jpg', url: 'https://images.unsplash.com/photo-1758544518111-53274094598e?auto=format&fit=crop&w=1000&q=80' },
   { filename: 'product-hair-serum.jpg', url: 'https://images.unsplash.com/photo-1519735777090-ec97162dc266?auto=format&fit=crop&w=1000&q=80' },
   { filename: 'product-hair-oil.jpg', url: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=80' },
   { filename: 'product-hair-curl-cream.jpg', url: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1000&q=80' },
