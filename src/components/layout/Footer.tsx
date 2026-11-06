@@ -28,28 +28,28 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="border-t border-gold/20 bg-emerald text-ivory/80">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 md:grid-cols-4">
-        <div>
-          <Link href="/" className="font-serif text-3xl font-medium tracking-[0.25em] text-ivory">
+      <div className="mx-auto grid max-w-7xl gap-8 sm:gap-10 px-4 py-10 sm:py-16 grid-cols-2 md:grid-cols-4">
+        <div className="col-span-2 md:col-span-1">
+          <Link href="/" className="font-serif text-2xl sm:text-3xl font-medium tracking-[0.2em] sm:tracking-[0.25em] text-ivory">
             {SITE.name}
           </Link>
-          <p className="mt-3 text-xs tracking-widest text-gold uppercase">{SITE.tagline}</p>
-          <p className="mt-4 text-xs leading-relaxed text-ivory/60">
+          <p className="mt-2 sm:mt-3 text-[10px] sm:text-xs tracking-widest text-gold uppercase">{SITE.tagline}</p>
+          <p className="mt-3 sm:mt-4 text-xs leading-relaxed text-ivory/60 max-w-sm">
             Curated luxury across beauty, electronics, fashion, and home living. Crafted for the way you live.
           </p>
         </div>
 
         {Object.entries(footerLinks).map(([title, links]) => (
-          <div key={title}>
-            <h3 className="mb-4 text-xs font-semibold tracking-wider text-gold uppercase">
+          <div key={title} className="col-span-1">
+            <h3 className="mb-3 sm:mb-4 text-xs font-semibold tracking-wider text-gold uppercase">
               {title}
             </h3>
-            <ul className="space-y-2.5 text-xs">
+            <ul className="space-y-2 sm:space-y-2.5 text-xs">
               {links.map((l) => (
                 <li key={l.label}>
                   <Link
                     href={l.href}
-                    className="text-ivory/70 transition-colors hover:text-gold"
+                    className="text-ivory/70 transition-colors hover:text-gold block py-0.5"
                   >
                     {l.label}
                   </Link>
@@ -60,7 +60,7 @@ export function Footer() {
         ))}
       </div>
 
-      <div className="border-t border-gold/15 py-6 text-center text-[11px] tracking-wider text-ivory/50 uppercase">
+      <div className="border-t border-gold/15 py-5 sm:py-6 text-center text-[10px] sm:text-[11px] tracking-wider text-ivory/50 uppercase px-4">
         © {new Date().getFullYear()} {SITE.name} · {SITE.slogan}
       </div>
     </footer>

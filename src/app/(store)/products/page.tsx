@@ -69,10 +69,10 @@ export default async function ProductsPage({ searchParams }: Props) {
       </div>
 
       {/* Categories Bar */}
-      <div className="mb-8 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+      <div className="mb-8 flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
         <Link
           href="/products"
-          className={`rounded-full px-4 py-2 text-xs font-medium transition ${
+          className={`shrink-0 rounded-full px-4 py-2 text-xs font-medium transition ${
             !category ? "bg-emerald text-white" : "bg-white text-ink/70 hover:bg-gold/10"
           }`}
         >
@@ -82,7 +82,7 @@ export default async function ProductsPage({ searchParams }: Props) {
           <Link
             key={c.slug}
             href={`/products?category=${c.slug}`}
-            className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-medium transition ${
+            className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-xs font-medium transition ${
               category === c.slug
                 ? "bg-emerald text-white shadow-sm"
                 : "bg-white text-ink/70 hover:bg-gold/10"
@@ -140,9 +140,9 @@ export default async function ProductsPage({ searchParams }: Props) {
                 </div>
               </div>
 
-              <div className="mt-4 flex items-center justify-between border-t border-gold/10 pt-3">
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-base font-bold text-ink">{formatPrice(p.price)}</span>
+              <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-t border-gold/10 pt-3">
+                <div className="flex flex-wrap items-baseline gap-1.5">
+                  <span className="text-sm sm:text-base font-bold text-ink">{formatPrice(p.price)}</span>
                   {p.compareAtPrice && (
                     <span className="text-xs text-ink/40 line-through">
                       {formatPrice(p.compareAtPrice)}
@@ -151,7 +151,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                 </div>
                 <Link
                   href={`/product/${p.slug}`}
-                  className="grid h-8 w-8 place-items-center rounded-full bg-emerald text-white transition hover:bg-gold hover:text-emerald"
+                  className="grid h-8 w-8 place-items-center self-end sm:self-auto rounded-full bg-emerald text-white transition hover:bg-gold hover:text-emerald shrink-0"
                   aria-label={`View ${p.name}`}
                 >
                   <ShoppingBag size={14} />

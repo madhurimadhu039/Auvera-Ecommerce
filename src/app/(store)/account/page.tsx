@@ -564,8 +564,8 @@ export default function AccountPage() {
           <div className="lg:col-span-4 xl:col-span-3">
             <div className="rounded-3xl border border-gold/25 bg-white p-6 shadow-sm">
               {/* Customer Avatar & Greeting */}
-              <div className="border-b border-gold/15 pb-6 text-center">
-                <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-full border-2 border-emerald bg-emerald/10 shadow-md">
+              <div className="border-b border-gold/15 pb-4 lg:pb-6 flex items-center gap-4 text-left lg:flex-col lg:text-center">
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-emerald bg-emerald/10 shadow-md lg:mx-auto lg:h-20 lg:w-20">
                   <Image
                     src="/images/avatar-michael.jpg"
                     alt={user.firstName}
@@ -573,18 +573,20 @@ export default function AccountPage() {
                     className="object-cover"
                   />
                 </div>
-                <h2 className="mt-3 font-serif text-xl font-bold text-ink sm:text-2xl">
-                  {user.firstName} {user.lastName}
-                </h2>
-                <p className="text-xs text-ink/60">{user.email}</p>
-                <div className="mt-3 inline-flex items-center gap-1 rounded-full bg-emerald/10 px-3 py-1 text-[11px] font-bold text-emerald">
-                  <ShieldCheck size={12} />
-                  <span>{user.memberTier}</span>
+                <div>
+                  <h2 className="font-serif text-lg font-bold text-ink sm:text-xl lg:text-2xl">
+                    {user.firstName} {user.lastName}
+                  </h2>
+                  <p className="text-xs text-ink/60 truncate max-w-[200px] sm:max-w-none">{user.email}</p>
+                  <div className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-emerald/10 px-2.5 py-0.5 text-[10px] font-bold text-emerald">
+                    <ShieldCheck size={12} />
+                    <span>{user.memberTier}</span>
+                  </div>
                 </div>
               </div>
 
               {/* Navigation Menu Links */}
-              <nav className="mt-6 space-y-1.5" aria-label="Account Sections">
+              <nav className="mt-4 flex gap-1.5 overflow-x-auto no-scrollbar pb-1 lg:mt-6 lg:flex-col lg:gap-1.5 lg:overflow-visible lg:pb-0" aria-label="Account Sections">
                 {[
                   { id: "orders", label: "My Orders", icon: Package, badge: orders.length },
                   { id: "tracking", label: "Order Tracking", icon: Truck },
@@ -599,14 +601,14 @@ export default function AccountPage() {
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id as DashboardTab)}
-                      className={`flex w-full items-center justify-between rounded-xl px-3.5 py-3 text-xs font-semibold tracking-wider uppercase transition ${
+                      className={`flex shrink-0 items-center justify-between gap-2.5 rounded-xl px-3.5 py-2.5 text-xs font-semibold tracking-wider uppercase transition whitespace-nowrap lg:w-full lg:py-3 ${
                         isActive
                           ? "bg-emerald text-ivory shadow-sm"
                           : "text-ink/75 hover:bg-[#FAF8F5] hover:text-emerald"
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <I size={16} />
+                      <div className="flex items-center gap-2 lg:gap-3">
+                        <I size={15} />
                         <span>{tab.label}</span>
                       </div>
                       {Boolean(tab.badge && tab.badge > 0) && (
@@ -623,12 +625,12 @@ export default function AccountPage() {
                 })}
 
                 {/* Logout Button */}
-                <div className="border-t border-gold/15 pt-3">
+                <div className="shrink-0 lg:border-t lg:border-gold/15 lg:pt-3">
                   <button
                     onClick={logout}
-                    className="flex w-full items-center gap-3 rounded-xl px-3.5 py-3 text-xs font-semibold tracking-wider text-rose-600 uppercase transition hover:bg-rose-50"
+                    className="flex shrink-0 items-center gap-2 rounded-xl px-3.5 py-2.5 text-xs font-semibold tracking-wider text-rose-600 uppercase transition hover:bg-rose-50 whitespace-nowrap lg:w-full lg:gap-3 lg:py-3"
                   >
-                    <LogOut size={16} />
+                    <LogOut size={15} />
                     <span>Logout</span>
                   </button>
                 </div>

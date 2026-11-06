@@ -1,11 +1,21 @@
 @tailwind base; @tailwind components; @tailwind utilities;
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { @apply bg-ivory text-ink font-sans antialiased; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ivory text-ink font-sans antialiased;
+    overflow-x: hidden;
+    max-width: 100vw;
+    -webkit-tap-highlight-color: transparent;
+  }
   h1,h2,h3 { @apply font-serif; }
   :focus-visible { @apply outline outline-2 outline-offset-2 outline-gold; }
 }
 @layer components {
-  .btn-gold { @apply inline-flex items-center gap-2 bg-gold text-emerald px-7 py-3 text-xs font-semibold uppercase tracking-luxe transition hover:bg-gold-light; }
+  .btn-gold { @apply inline-flex items-center justify-center gap-2 bg-gold text-emerald px-6 sm:px-7 py-3 text-xs font-semibold uppercase tracking-luxe transition hover:bg-gold-light; }
   .eyebrow { @apply text-[11px] uppercase tracking-luxe text-gold-dark; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }

@@ -67,11 +67,11 @@ export default function NewArrivalsPage() {
               </div>
             </div>
 
-            <div className="mt-4 flex items-center justify-between border-t border-gold/10 pt-3">
-              <span className="text-base font-bold text-ink">{formatPrice(p.price)}</span>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-t border-gold/10 pt-3">
+              <span className="text-sm sm:text-base font-bold text-ink">{formatPrice(p.price)}</span>
               <Link
                 href={`/product/${p.slug}`}
-                className="grid h-8 w-8 place-items-center rounded-full bg-emerald text-white transition hover:bg-gold hover:text-emerald"
+                className="grid h-8 w-8 place-items-center self-end sm:self-auto rounded-full bg-emerald text-white transition hover:bg-gold hover:text-emerald shrink-0"
                 aria-label={`View ${p.name}`}
               >
                 <ShoppingBag size={14} />

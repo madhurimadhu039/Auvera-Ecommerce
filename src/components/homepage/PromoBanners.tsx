@@ -31,24 +31,24 @@ const banners = [
 
 export function PromoBanners() {
   return (
-    <section className="mx-auto grid max-w-7xl gap-5 px-4 py-8 md:grid-cols-3">
+    <section className="mx-auto grid max-w-7xl gap-3 sm:gap-5 px-3 sm:px-4 py-6 sm:py-8 grid-cols-1 md:grid-cols-3">
       {banners.map((b) => (
         <Link
           key={b.title}
           href={b.href}
           prefetch={true}
-          className={`group relative flex min-h-[190px] items-center justify-between overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:shadow-lg ${b.bg}`}
+          className={`group relative flex min-h-[150px] sm:min-h-[180px] items-center justify-between overflow-hidden rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:shadow-lg ${b.bg}`}
         >
-          <div className="z-10 flex max-w-[55%] flex-col justify-between">
+          <div className="z-10 flex max-w-[58%] flex-col justify-between">
             <div>
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-ink/60">
+              <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-ink/60">
                 {b.tag}
               </span>
-              <h3 className="mt-1 text-xl font-bold leading-tight text-ink sm:text-2xl">
+              <h3 className="mt-1 text-lg sm:text-xl md:text-2xl font-bold leading-tight text-ink">
                 {b.title}
               </h3>
             </div>
-            <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-ink group-hover:text-emerald">
+            <div className="mt-3 sm:mt-4 flex items-center gap-1.5 text-xs font-semibold text-ink group-hover:text-emerald">
               <span>Shop Now</span>
               <ArrowRight
                 size={13}
@@ -57,12 +57,12 @@ export function PromoBanners() {
             </div>
           </div>
 
-          <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-xl sm:h-36 sm:w-36">
+          <div className="relative h-24 w-24 sm:h-32 sm:w-32 shrink-0 overflow-hidden rounded-xl">
             <Image
               src={b.image}
               alt={b.alt}
               fill
-              sizes="(max-width: 768px) 130px, 150px"
+              sizes="(max-width: 768px) 110px, 140px"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>

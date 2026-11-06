@@ -241,13 +241,13 @@ export default function CartPage() {
             </ul>
 
             {/* Trust and Quality Assurances */}
-            <div className="grid grid-cols-3 gap-3 rounded-2xl border border-gold/15 bg-white p-4 text-center text-[11px] text-ink/70 sm:p-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 rounded-2xl border border-gold/15 bg-white p-4 text-center text-xs text-ink/70 sm:p-5">
               <div className="flex flex-col items-center gap-1.5">
                 <Truck size={18} className="text-emerald" />
                 <span className="font-semibold text-ink">Free Express Delivery</span>
                 <span className="text-[10px] text-ink/50">On orders over ₹4,999</span>
               </div>
-              <div className="flex flex-col items-center gap-1.5 border-x border-gold/15 px-2">
+              <div className="flex flex-col items-center gap-1.5 border-y sm:border-y-0 sm:border-x border-gold/15 py-3 sm:py-0 px-2">
                 <RotateCcw size={18} className="text-emerald" />
                 <span className="font-semibold text-ink">30-Day Easy Returns</span>
                 <span className="text-[10px] text-ink/50">Complimentary courier pickup</span>
