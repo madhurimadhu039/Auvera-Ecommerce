@@ -1,7 +1,7 @@
 import { Truck, RotateCcw, Lock, Headphones } from "lucide-react";
 
 const benefits = [
-  { icon: Truck, title: "Free Shipping", desc: "On orders over ₹999" },
+  { icon: Truck, title: "Free Shipping", desc: "On orders over $49" },
   { icon: RotateCcw, title: "Easy Returns", desc: "30 days return policy" },
   { icon: Lock, title: "Secure Payments", desc: "100% secure checkout" },
   { icon: Headphones, title: "24/7 Support", desc: "We're here to help" },

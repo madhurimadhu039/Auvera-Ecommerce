@@ -1,7 +1,8 @@
 export const SITE = {
-  name: "AUVERA",
-  tagline: "THE ART OF EVERYDAY LUXURY.",
-  slogan: "BEYOND ORDINARY.",
+  name: "ViVA",
+  altName: "AUVERA",
+  tagline: "LIVE BETTER",
+  slogan: "ELEVATE YOUR EVERYDAY",
 };
 export const NAV = [
   { label: "Home", href: "/" },

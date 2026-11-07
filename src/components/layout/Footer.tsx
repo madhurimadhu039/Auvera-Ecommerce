@@ -28,7 +28,7 @@ export function Footer() {
             </Link>
 
             <p className="mt-4 text-xs leading-relaxed text-white/60 max-w-xs">
-              Your one-stop shop for quality products across every category. Live better with Auvera.
+              Your one-stop shop for quality products across every category. Live better with Viva.
             </p>
 
             {/* Social Icons */}
@@ -169,7 +169,7 @@ export function Footer() {
         {/* Bottom Bar: Copyright, Legal, Country Selector */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
           <div>
-            © {new Date().getFullYear()} {SITE.name}, All rights reserved.
+            © 2024 Viva. All rights reserved.
           </div>
 
           <div className="flex items-center gap-6 text-[11px] sm:text-xs">
