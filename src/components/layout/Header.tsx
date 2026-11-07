@@ -99,25 +99,36 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-gold/20 bg-ivory/95 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-gray-100 bg-white/95 backdrop-blur-md">
       {/* Top Main Navigation Bar */}
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:py-3.5">
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setMobileMenuOpen(true)}
           aria-label="Open navigation menu"
-          className="grid h-10 w-10 shrink-0 place-items-center rounded-lg text-emerald hover:bg-emerald/10 transition md:hidden"
+          className="grid h-10 w-10 shrink-0 place-items-center rounded-lg text-[#0B3B2C] hover:bg-[#0B3B2C]/10 transition md:hidden"
         >
           <Menu size={22} />
         </button>
 
-        {/* Brand Logo */}
+        {/* Brand Logo with Leaf Badge */}
         <Link
           href="/"
           prefetch={true}
-          className="font-serif text-2xl sm:text-3xl font-medium tracking-[0.2em] sm:tracking-[0.25em] text-emerald transition hover:opacity-90"
+          className="flex items-center gap-2.5 transition hover:opacity-90 shrink-0"
         >
-          {SITE.name}
+          <div className="relative grid h-10 w-10 place-items-center rounded-xl border border-[#0B3B2C]/20 bg-[#0B3B2C]/5 text-[#0B3B2C]">
+            <ShoppingBag size={21} strokeWidth={1.75} />
+            <span className="absolute bottom-1.5 right-1.5 text-[9px] leading-none">🍃</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="font-serif text-2xl font-bold tracking-[0.12em] text-[#0B3B2C] leading-none">
+              {SITE.name}
+            </span>
+            <span className="text-[8.5px] font-semibold tracking-[0.22em] text-[#0B3B2C]/70 mt-1 uppercase">
+              LIVE BETTER
+            </span>
+          </div>
         </Link>
 
         {/* Global Desktop Search Bar */}
@@ -130,49 +141,49 @@ export function Header() {
           <input
             name="q"
             aria-label="Search products"
-            placeholder="Search products, brands and more…"
-            className="w-full rounded-full border border-gold/40 bg-white/80 py-2.5 pl-5 pr-14 text-sm text-ink outline-none transition focus:border-emerald focus:ring-1 focus:ring-emerald"
+            placeholder="Search products, brands and more..."
+            className="w-full rounded-full border border-gray-200 bg-[#FAF9F6] py-2.5 pl-5 pr-14 text-sm text-ink outline-none transition focus:border-[#0B3B2C] focus:bg-white"
           />
           <button
             type="submit"
             aria-label="Search"
-            className="absolute right-1 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-emerald text-gold transition hover:bg-emerald-700"
+            className="absolute right-1.5 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-[#0B3B2C] text-white transition hover:bg-[#07261C]"
           >
             <Search size={15} />
           </button>
         </form>
 
         {/* User Actions */}
-        <div className="flex items-center gap-3 sm:gap-6 text-emerald">
+        <div className="flex items-center gap-3 sm:gap-6 text-[#0B3B2C]">
           {/* Mobile Search Toggle Button */}
           <button
             onClick={() => setMobileSearchOpen((prev) => !prev)}
             aria-label="Toggle search"
-            className="grid h-10 w-10 place-items-center rounded-lg text-emerald transition hover:bg-emerald/10 md:hidden"
+            className="grid h-10 w-10 place-items-center rounded-lg text-[#0B3B2C] transition hover:bg-[#0B3B2C]/10 md:hidden"
           >
             <Search size={20} />
           </button>
 
           {/* Action Links */}
-          <nav className="flex items-center gap-3 sm:gap-6" aria-label="Account">
+          <nav className="flex items-center gap-4 sm:gap-6" aria-label="Account">
             {actions.map(({ I, l, h, badge, active }) => (
               <Link
                 key={h}
                 href={h}
                 prefetch={true}
-                className={`group relative flex flex-col items-center p-1 text-[10px] uppercase tracking-widest transition ${
-                  active ? "font-bold text-gold-dark" : "hover:text-gold-dark"
+                className={`group relative flex flex-col items-center p-1 text-[11px] font-medium transition ${
+                  active ? "text-[#0B3B2C] font-bold" : "text-gray-700 hover:text-[#0B3B2C]"
                 }`}
               >
                 <div className="relative">
-                  <I size={21} strokeWidth={active ? 2 : 1.5} />
+                  <I size={21} strokeWidth={active ? 2 : 1.5} className="text-gray-800 group-hover:text-[#0B3B2C]" />
                   {Boolean(badge && badge > 0) && (
-                    <span className="absolute -right-2.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-emerald px-1 text-[9px] font-bold text-ivory shadow-sm animate-in zoom-in-50 duration-200">
+                    <span className="absolute -right-2.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#0B3B2C] px-1 text-[9px] font-bold text-white shadow-sm animate-in zoom-in-50 duration-200">
                       {badge > 99 ? "99+" : badge}
                     </span>
                   )}
                 </div>
-                <span className="mt-1 hidden sm:inline">{l}</span>
+                <span className="mt-1 hidden sm:inline capitalize">{l}</span>
               </Link>
             ))}
           </nav>
@@ -181,19 +192,19 @@ export function Header() {
 
       {/* Mobile Collapsible Search Drawer */}
       {mobileSearchOpen && (
-        <div className="border-t border-gold/15 bg-white p-3 shadow-md md:hidden animate-in fade-in slide-in-from-top-2">
+        <div className="border-t border-gray-100 bg-white p-3 shadow-md md:hidden animate-in fade-in slide-in-from-top-2">
           <form action="/products" method="GET" className="relative flex items-center">
             <input
               name="q"
               autoFocus
               aria-label="Search products"
               placeholder="Search products, brands and more…"
-              className="w-full rounded-full border border-gold/40 bg-[#FAF8F5] py-2.5 pl-4 pr-12 text-xs text-ink outline-none focus:border-emerald"
+              className="w-full rounded-full border border-gray-200 bg-[#FAF9F6] py-2.5 pl-4 pr-12 text-xs text-ink outline-none focus:border-[#0B3B2C]"
             />
             <button
               type="submit"
               aria-label="Search"
-              className="absolute right-1 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-emerald text-gold"
+              className="absolute right-1 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-[#0B3B2C] text-white"
             >
               <Search size={14} />
             </button>
@@ -202,37 +213,27 @@ export function Header() {
       )}
 
       {/* Desktop Secondary Categories & Nav Row */}
-      <div className="border-t border-gold/10 hidden md:block">
-        <div className="mx-auto flex max-w-7xl items-center gap-8 px-4 py-2 text-xs uppercase tracking-widest">
-          {/* All Categories Button with Dropdown Menu */}
+      <div className="border-t border-gray-100 hidden md:block">
+        <div className="mx-auto flex max-w-7xl items-center gap-8 px-4 py-2.5 text-xs">
+          {/* All Categories Pill Button with Dropdown Menu */}
           <div className="relative" ref={dropdownRef}>
-            <div className={`flex items-center rounded-md ${isCategoriesActive ? "ring-2 ring-gold" : ""}`}>
-              <Link
-                href="/categories"
-                prefetch={true}
-                className={`flex items-center gap-2 rounded-l-md px-4 py-2 text-ivory transition ${
-                  isCategoriesActive ? "bg-emerald-800" : "bg-emerald hover:bg-emerald-700"
-                }`}
-              >
-                <Menu size={14} />
-                <span className="font-semibold">All Categories</span>
-              </Link>
-              <button
-                onClick={() => setDropdownOpen((prev) => !prev)}
-                aria-expanded={dropdownOpen}
-                aria-label="Toggle category menu"
-                className="rounded-r-md border-l border-emerald-600 bg-emerald px-2 py-2 text-ivory transition hover:bg-emerald-700"
-              >
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-            </div>
+            <button
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              aria-expanded={dropdownOpen}
+              aria-label="Toggle category menu"
+              className="flex items-center gap-2 rounded-full bg-[#0B3B2C] px-5 py-2 text-white font-medium text-xs transition hover:bg-[#07261C] shadow-xs"
+            >
+              <Menu size={14} />
+              <span>All Categories</span>
+              <ChevronDown
+                size={13}
+                className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+              />
+            </button>
 
             {/* Interactive Dropdown Flyout */}
             {dropdownOpen && (
-              <div className="absolute left-0 top-full z-50 mt-2 w-72 rounded-xl border border-gold/30 bg-white p-3 shadow-2xl animate-in fade-in slide-in-from-top-2">
+              <div className="absolute left-0 top-full z-50 mt-2 w-72 rounded-xl border border-gray-200 bg-white p-3 shadow-2xl animate-in fade-in slide-in-from-top-2">
                 <div className="mb-2 px-3 py-1.5 text-[10px] font-bold tracking-widest text-ink/40 uppercase">
                   Departments & Categories
                 </div>

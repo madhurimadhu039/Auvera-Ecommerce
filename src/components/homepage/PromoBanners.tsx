@@ -7,7 +7,7 @@ const banners = [
     tag: "New Arrivals",
     title: "Fresh Styles Just In",
     href: "/categories/fashion",
-    bg: "bg-[#EAF2ED]",
+    bg: "bg-[#E8F0EA]",
     image: "/images/banner-handbag.jpg",
     alt: "Luxury Emerald Leather Handbag",
   },
@@ -15,7 +15,7 @@ const banners = [
     tag: "Home Refresh",
     title: "Make Your Space Better",
     href: "/categories/home-living",
-    bg: "bg-[#F7F3EC]",
+    bg: "bg-[#FAF2EA]",
     image: "/images/banner-armchair.jpg",
     alt: "Scandinavian Bouclé Armchair",
   },
@@ -23,7 +23,7 @@ const banners = [
     tag: "Tech Essentials",
     title: "Upgrade Your Lifestyle",
     href: "/categories/electronics",
-    bg: "bg-[#EBF1F6]",
+    bg: "bg-[#EAF2F8]",
     image: "/images/banner-smartwatch.jpg",
     alt: "AMOLED Precision Smartwatch",
   },
@@ -31,24 +31,24 @@ const banners = [
 
 export function PromoBanners() {
   return (
-    <section className="mx-auto grid max-w-7xl gap-3 sm:gap-5 px-3 sm:px-4 py-6 sm:py-8 grid-cols-1 md:grid-cols-3">
+    <section className="mx-auto grid max-w-7xl gap-4 sm:gap-6 px-3 sm:px-4 py-6 sm:py-8 grid-cols-1 md:grid-cols-3">
       {banners.map((b) => (
         <Link
           key={b.title}
           href={b.href}
           prefetch={true}
-          className={`group relative flex min-h-[150px] sm:min-h-[180px] items-center justify-between overflow-hidden rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:shadow-lg ${b.bg}`}
+          className={`group relative flex min-h-[160px] sm:min-h-[180px] items-center justify-between overflow-hidden rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-md ${b.bg}`}
         >
           <div className="z-10 flex max-w-[58%] flex-col justify-between">
             <div>
-              <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-ink/60">
+              <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">
                 {b.tag}
               </span>
-              <h3 className="mt-1 text-lg sm:text-xl md:text-2xl font-bold leading-tight text-ink">
+              <h3 className="mt-1 text-xl sm:text-2xl font-bold leading-tight text-gray-900">
                 {b.title}
               </h3>
             </div>
-            <div className="mt-3 sm:mt-4 flex items-center gap-1.5 text-xs font-semibold text-ink group-hover:text-emerald">
+            <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-gray-900 group-hover:text-[#0B3B2C] transition-colors">
               <span>Shop Now</span>
               <ArrowRight
                 size={13}
@@ -57,7 +57,7 @@ export function PromoBanners() {
             </div>
           </div>
 
-          <div className="relative h-24 w-24 sm:h-32 sm:w-32 shrink-0 overflow-hidden rounded-xl">
+          <div className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 overflow-hidden rounded-xl">
             <Image
               src={b.image}
               alt={b.alt}
